@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Adwaitha ❤️</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+font-family:Arial, sans-serif;
+}
+
+.box{
+background:white;
+padding:30px;
+border-radius:20px;
+width:420px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+button{
+padding:10px 25px;
+border:none;
+border-radius:20px;
+font-size:16px;
+margin:10px;
+cursor:pointer;
+}
+
+.yes{background:#ff4b6e;color:white}
+.no{background:#ddd}
+
+.hide{display:none}
+
+.heart{
+position:fixed;
+top:-10vh;
+animation:fall 4s linear infinite;
+}
+
+@keyframes fall{
+0%{top:-10vh}
+100%{top:110vh}
+}
+</style>
+</head>
+
+<body>
+
+<!-- START PAGE -->
+<div class="box" id="start">
+<h2>Hey Adwaitha ❤️</h2>
+<p>You make my world brighter every day.</p>
+<h3>Will you be my Valentine?</h3>
+
+<button class="yes" onclick="yes()">Yes 💕</button>
+<button class="no" onclick="no()">No 🙃</button>
+</div>
+
+<!-- NO PAGE -->
+<div class="box hide" id="noPage">
+<h3 id="msg"></h3>
+<p>Please think again 🥺</p>
+
+<button class="yes" onclick="yes()">Okay Yes ❤️</button>
+<button class="no" onclick="no()">Still No 😶</button>
+</div>
+
+<!-- YES PAGE -->
+<div class="box hide" id="yesPage">
+<p style="text-align:left">
+
+My dear Adwaitha,<br><br>
+
+No matter what happens in your college life,  
+no matter what happens with your friends,  
+no matter how heavy some days feel —  
+
+you will always have me by your side.
+
+I’ll listen to your stories,  
+support your dreams,  
+and stay with you even on your hardest days.
+
+Even when you doubt yourself,  
+I’ll believe in you enough for both of us.
+
+Thank you for choosing me.  
+Thank you for being my Valentine ❤️  
+
+Forever yours,  
+Milan
+
+</p>
+</div>
+
+<script>
+let i=0;
+
+const texts=[
+"Are you sure? I was already imagining us together 💕",
+"My days feel incomplete without you 🥺",
+"I promise to make you smile every day ❤️",
+"You are my favorite person",
+"Please Adwaitha… my heart chose you 💖"
+];
+
+function no(){
+document.getElementById("start").classList.add("hide");
+document.getElementById("yesPage").classList.add("hide");
+document.getElementById("noPage").classList.remove("hide");
+document.getElementById("msg").innerText=texts[i%texts.length];
+i++;
+}
+
+function yes(){
+document.getElementById("start").classList.add("hide");
+document.getElementById("noPage").classList.add("hide");
+document.getElementById("yesPage").classList.remove("hide");
+}
+
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),4000);
+},500);
+</script>
+
+</body>
+</html>
